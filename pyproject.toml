@@ -22,7 +22,8 @@ dynamic = [
 ]
 requires-python = "~=3.8"
 dependencies = [
-    "apache-airflow>=2.4"
+    "apache-airflow>=2.4",
+    "truefoundry>=0.4.0"
 ]
 
 [project.urls]
