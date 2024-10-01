@@ -13,6 +13,5 @@ def get_provider_info():
                 "hook-class-name": "truefoundry_provider.hooks.truefoundry.TrueFoundryHook"
             }
         ],
-        "extra-links": ["truefoundry_provider.operators.job_run_now.TrueFoundryOperatorExtraLink"],
         "versions": [__version__],  # Required
     }
