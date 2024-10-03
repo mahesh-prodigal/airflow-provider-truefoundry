@@ -1,7 +1,6 @@
 from enum import Enum
 import time
 
-from airflow.utils.decorators import apply_defaults
 from airflow.exceptions import AirflowException
 from airflow.models import BaseOperator
 
@@ -100,7 +99,7 @@ class TrueFoundryJobRunNowOperator(BaseOperator):
                     if status == JobRunState.FINISHED:
                         return
                     elif status == JobRunState.FAILED:
-                        retries = job_run_object.retries
+                        retries = job_run_object.totalRetries
                         raise AirflowException(
                             f"JobRunName: {self.job_run_name} failed after {retries} retries"
                         )

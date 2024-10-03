@@ -1,4 +1,4 @@
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 
 # This is needed to allow Airflow to pick up specific metadata fields it needs for certain features.
@@ -13,6 +13,5 @@ def get_provider_info():
                 "hook-class-name": "truefoundry_provider.hooks.truefoundry.TrueFoundryHook"
             }
         ],
-        "extra-links": ["truefoundry_provider.operators.job_run_now.TrueFoundryOperatorExtraLink"],
         "versions": [__version__],  # Required
     }
