@@ -9,8 +9,10 @@ from truefoundry_provider.hooks.truefoundry import TrueFoundryHook
 
 
 class JobRunState(str, Enum):
+    CREATED: str = "CREATED"
     SCHEDULED: str = "SCHEDULED"
     RUNNING: str = "RUNNING"
+    TERMINATION_REQUESTED: str = "TERMINATION_REQUESTED"
     TERMINATING: str = "TERMINATING"
     TERMINATED: str = "TERMINATED"
     FAILED: str = "FAILED"
@@ -89,8 +91,10 @@ class TrueFoundryJobRunNowOperator(BaseOperator):
                 )
                 status = job_run_object.status
                 if status in [
+                    JobRunState.CREATED,
                     JobRunState.RUNNING,
                     JobRunState.SCHEDULED,
+                    JobRunState.TERMINATION_REQUESTED,
                     JobRunState.TERMINATING,
                 ]:
                     time.sleep(self.polling_interval)
